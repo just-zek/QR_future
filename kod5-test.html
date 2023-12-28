@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Předpověď budoucnosti</title>
+  <style>
+    /* Styling pro vzhled */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px; /* Přidán odstup od horní části stránky */
+    }
+    .prediction {
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="prediction" id="predpoved"></div>
+
+  <script>
+    // JavaScript pro zobrazení náhodné předpovědi po načtení stránky
+    document.addEventListener("DOMContentLoaded", function() {
+      var predpovedi = [
+        // ... seznam předpovědí ...
+ "Budete mít štěstí ve financích.",
+        "Čeká vás nová a vzrušující pracovní příležitost.",
+"Budete mít štěstí ve financích.",
+"Čeká vás nová a vzrušující pracovní příležitost.",
+"Někdo z vašeho okolí vám přinese neočekávanou radost.",
+"Čas strávený s rodinou bude plný harmonie a lásky.",
+"Získáte nového významného přítele.",
+"Čeká vás cesta do zajímavého a vzdáleného místa.",
+"Naučíte se něco nového, co vám obohatí život.",
+"Vaše tvrdá práce bude nakonec odměněna.",
+"Náhodné setkání změní váš pohled na svět.",
+"Uděláte krok k dosažení svého dlouholetého cíle.",
+"Buďte opatrní při podpisu důležitých dokumentů.",
+"Zdravotní stav vyžaduje více pozornosti a péče.",
+"Může se objevit nečekaný finanční výdaj.",
+"Někdo kolem vás může být neupřímný, buďte opatrní.",
+"Varování před konfliktní situací ve vašem okolí.",
+"Ztráta něčeho důležitého může vést k novým možnostem.",
+"Přemýšlejte o dlouhodobých investicích a plánujte opatrně.",
+"Nevěřte všemu, co slyšíte, ověřujte si informace.",
+"Možnost zklamání ve vztazích, buďte otevření komunikaci.",
+"Zdržte se velkých finančních rozhodnutí na nějaký čas.",
+"Opatrně s investicemi, může to být rizikové období.",
+"Pozor na důvěřivost v osobním životě.",
+"Pozornost k detailům vám pomůže vyhnout se problémům.",
+"Setkáte se s výzvou, která vás posune k osobnímu růstu.",
+"Náhodné setkání přinese novou inspiraci do vašeho života.",
+"Udělejte si čas na odpočinek a regeneraci.",
+"Získáte cenné poučení z chyb, které jste udělali.",
+"Váš vnitřní hlas vám poradí správnou cestu, poslouchejte ho.",
+"Pozitivní změny v pracovním prostředí budou prospěšné.",
+"Někdo z vašeho okolí vám nabídne nečekanou pomoc.",
+"Kreativita vás provede přes překážky, buďte kreativní.",
+"Zlepšení v komunikaci pomůže vyřešit konfliktní situace.",
+"Získejte nové dovednosti, které vám otevřou nové příležitosti.",
+"Očekávejte pozitivní změny ve svém osobním životě.",
+"Vaše vytrvalost a trpělivost přinesou očekávané výsledky.",
+"Výzva, která přijde, vám pomůže vyřešit minulé problémy.",
+"Zaměřte se na svoji mentální pohodu, je to klíčové.",
+"Příležitost se vám naskytne, nebojte se ji chytit za pačesy.",
+"Udělejte si čas na sebe a své blízké, je to důležité.",
+"Sledujte své zdraví, prevence je lepší než léčba.",
+"Nezávislost vám pomůže překonat překážky.",
+"Získejte nové perspektivy na problémy, hledejte alternativy.",
+"Staňte se mentorem pro někoho, kdo to potřebuje.",
+      ];
+
+      var predpovedCookie = getCookie("predpovedDen");
+      var dnesniDatum = new Date().toDateString();
+
+      if (predpovedCookie === null || predpovedCookie !== dnesniDatum) {
+        var nahodnaPredpoved = predpovedi[Math.floor(Math.random() * predpovedi.length)];
+        document.getElementById("predpoved").innerHTML = "<strong>Vaše předpověď budoucnosti zní:</strong><br>" + nahodnaPredpoved;
+
+        // Uložení cookie s dnešním datem
+        document.cookie = "predpovedDen=" + dnesniDatum + "; expires=Sun, 1 Jan 2023 00:00:00 UTC; path=/";
+      } else {
+        document.getElementById("predpoved").innerHTML = "Už jste dnes získali předpověď budoucnosti.";
+      }
+    });
+
+    // Funkce pro získání hodnoty cookie
+    function getCookie(name) {
+      var nameEQ = name + "=";
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        while (cookie.charAt(0) === ' ') {
+          cookie = cookie.substring(1, cookie.length);
+        }
+        if (cookie.indexOf(nameEQ) === 0) {
+          return cookie.substring(nameEQ.length, cookie.length);
+        }
+      }
+      return null;
+    }
+  </script>
+</body>
+</html>
